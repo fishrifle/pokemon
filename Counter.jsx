@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+// import "./Counter.css"
 
 function Counter({ item }) {
     const [count, setCount] = useState(0)
@@ -17,10 +18,11 @@ function Counter({ item }) {
     }
     return (
         <>
+        <div id="Counter">
             <p>{count}</p>
-            <button style={{height: '40px', width: '70px', textAlign: 'center'}} onClick={handleClick}>like</button>
-            <br></br>
-
+            <button style={{height: '4rem', width: '10rem', textAlign: 'center', backgroundColor: 'black', color: 'white'}} onClick={handleClick}>like</button>
+            
+</div>
 
 
 

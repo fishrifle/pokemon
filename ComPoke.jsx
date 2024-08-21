@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Card from './Card';
+// import "./ComPoke.css"
 
 
 const ComPoke = () => {
@@ -15,7 +16,10 @@ const ComPoke = () => {
 
         axios({
             method: 'GET',
-            url: ("https://pokeapi.co/api/v2/pokemon?limit=100&offset=0")        })
+            url: ("https://pokeapi.co/api/v2/pokemon?limit=550&offset=0")
+        })
+            // pending zone where it either resolves rejects or pendinds further
+
             .then(res => {
                 setPoke(res.data.results);
                 // console.log(res.data);
@@ -26,7 +30,7 @@ const ComPoke = () => {
             //   )  }
             .catch(err => console.log("error", err));
     }, [])
-
+// dependencey array
     const handleChange = (e) => {
         console.log("handleChange", e.target.value)
         setSearch(e.target.value)
@@ -40,22 +44,23 @@ const ComPoke = () => {
         <>
             {console.warn("SEARCH VALUE", search)}
             {console.warn("POKE", poke)}
-            <div>Pokemon</div>
+            <div id="ComPoke">Pokemon</div>
+            
 
             <input onChange={(e) => handleChange(e)} placeholder="Search"></input>
 
 
-            {search.length >= 1 
-            ?
+            {search.length >= 1
+                ?
                 (
 
                     poke.filter((item) => item?.name.startsWith(search)).map((item, i) => {
                         return (
-                            <Card 
-                            
-                            key={item.name} 
-                            item={item} 
-                            handleChange={handleChange} />
+                            <Card
+
+                                key={item.name}
+                                item={item}
+                                handleChange={handleChange} />
 
 
                         )
@@ -75,9 +80,9 @@ const ComPoke = () => {
                         return (
 
 
-                            <Card key={item.name} item={item} 
+                            <Card key={item.name} item={item}
 
-                            handleChange={handleChange}/>
+                                handleChange={handleChange} />
 
 
 

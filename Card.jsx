@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import Counter from './Counter'
 import axios from 'axios'
+// import "./Card.css"
+
 
 const Card = ({ item }) => {
 
@@ -28,24 +30,24 @@ const Card = ({ item }) => {
 
   return (
     <>
-      {console.warn("item", item)}
+      {/* {console.warn("item", item)} */}
 
 
-      <div style={{ border: "solid black 5px", marginTop: "20px", color: "black", fontWeight: 'bold', backgroundColor: "tan", width: "500px", height: "650px" }}>
+      <div style={{ border:'solid 10px black', margin: '20px 20px 20px 20px',  color: "black", fontSize: "larger", fontWeight: 'bold', backgroundColor: "green", width: "100%", height: "60%", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", }}>
 
         <p>
           {item?.name}
         </p>
-        <p>
+    <p>
           {item?.url}
 
         </p>
 
-        <img style={{ height: '125px', width: '125px' }} src={pokemon.sprites?.front_shiny} alt={item?.name} />
+        <img style={{ height: '7rem', width: '7rem', }} src={pokemon.sprites?.front_shiny} alt={item?.name} />
         <br></br>
 
-        <button style={{ height: '60px', width: '90px', color: 'white', textAlign: 'center', backgroundColor: 'green' }} onClick={toggleAbilities}>
-          {showAbilities ? "Close Abilities" : "Show Abilities"}
+        <button style={{ display: "flex", height: '4rem', width: '10rem',  textAlign: 'center', backgroundColor: 'black', color: "white", JustifyContent: "center", alignItems: "center",  }} onClick={toggleAbilities}>
+          {showAbilities ? "" : "SHOW ABILITIES"}
         </button>
         <br></br>
 
@@ -56,7 +58,7 @@ const Card = ({ item }) => {
 
           pokemon?.abilities?.map((item) => {
             return (
-              <div key={item.name} style={{ fontFamily: 'cursive' }}>
+              <div key={item.name} style={{ fontSize: 'larger', color: 'black'  }}>
                 {item?.ability.name}
               </div>
             )
@@ -71,11 +73,11 @@ const Card = ({ item }) => {
 
         <br></br>
 
-        <button onClick={() => setSeeType(!seeType)}>Type</button>
+        <button style={{height: '4rem', width: '10rem', color: 'white', backgroundColor: 'black'}} onClick={() => setSeeType(!seeType)}>MY TYPE</button>
         {seeType && (
           pokemon.types?.map((typeItem, index) => (
 
-            <div key={index}>{typeItem?.type.name}</div>
+            <div style={{color: 'black', fontSize: 'larger', fontWeight: 'bold',}} key={index}>{typeItem?.type.name}</div>
           ))
         )}
         <br></br>
@@ -84,5 +86,22 @@ const Card = ({ item }) => {
     </>
   )
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 export default Card
+
 
